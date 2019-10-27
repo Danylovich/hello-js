@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/static-server ./public"
+    "start": "./node_modules/.bin/static-server ./public",
+    "phpdev": "php -S localhost:9090 -t ./public"
   },
   "repository": {
     "type": "git",

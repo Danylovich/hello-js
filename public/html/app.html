@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ title }}</title>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 500px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Twig</h1>
+    <h1>Hello Twig - {{ username }}</h1>
+    {% if cities%}
+    <ul>
+        {% for city in cities %}
+        <li>{{city}}</li>
+        {% endfor %}
+    </ul>
+    {%endif%}
+    <P> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, id? </P>
+
+    <table>
+        <tr>
+            <th>Pupil</th>
+            <th colspan="3">Score</th>
+            <th>Avg</th>
+        </tr>
+        {% for r in score%}
+            <tr>
+                <td>{{r.name}}</td>
+                {%for s in r.score%}
+                    <td>{{s}}</td>
+                {%endfor%}
+                <th>{{ '%.1f'|format(r.avg)}}</th>
+            </tr>
+        {%endfor%}
+    </table>
 </body>
 </html>

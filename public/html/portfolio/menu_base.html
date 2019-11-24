@@ -1,0 +1,30 @@
+{% macro menuitem( title, url ) %}
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ url }}">
+        {{title}}
+    </a>
+</li>
+
+{% endmacro %}
+
+{% macro menubrand( title , url ) %}
+    
+<a class="navbar-brand" href="{{url}}">{{title}}</a>
+
+{% endmacro %}
+
+{% macro menubutton() %}
+
+<button class="navbar-toggler"
+type="button"
+data-toggle="collapse"
+data-target="#navbarNav"
+aria-controls="navbarNav"
+aria-expanded="false"
+aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+{% endmacro%}
+

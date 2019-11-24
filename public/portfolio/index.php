@@ -6,6 +6,12 @@ $loader = new \Twig\Loader\FilesystemLoader(
 );
 $twig = new \Twig\Environment($loader);
 
-echo $twig->render('index.html');
+$imgs = [
+    '/images/xim.jpeg',
+    '/images/do.jpeg',
+    '/images/rose-blue-flower-rose-blooms-67636.jpeg'
+];
+
+echo $twig->render('index.html', ['imgs'=>$imgs] );
 
 ?>

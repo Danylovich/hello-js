@@ -1,18 +1,14 @@
+{% import "menu_base.html" as mb %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/portfolio/index.php">Bohdan</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    {{ mb.menubrand( 'Bohdan', '/portfolio/index.php')}}
+    {{ mb.menubutton()}}
     <div class="collapse navbar-collapse" id="navbarNav">
+
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/portfolio/gallery.php">Gallery</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/portfolio/hobby.php">Hobby</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/portfolio/contacts.php">Contacts</a>
-            </li>
+            {{ mb.menuitem( 'Gallery' ,   '/portfolio/gallery.php' )}}
+            {{ mb.menuitem( 'Hobby' ,     '/portfolio/hobby.php' )}}
+            {{ mb.menuitem( 'Contacts' ,  '/portfolio/contacts.php' )}}  
         </ul>
+    </div>    
   </nav>

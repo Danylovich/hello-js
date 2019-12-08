@@ -6,6 +6,12 @@ $loader = new \Twig\Loader\FilesystemLoader(
 );
 $twig = new \Twig\Environment($loader);
 
-echo $twig->render('gallery.html');
+require_once '../storage/hotels_dat.php';
+
+echo $twig->render('gallery.html',
+    [ 'hotels' => 
+        array_slice(array_reverse( $hotels ), 0, 3)
+    ]
+);
 
 ?>

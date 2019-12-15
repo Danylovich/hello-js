@@ -1,0 +1,1 @@
+a:1:{i:0;a:3:{s:5:"title";s:1:"A";s:3:"url";s:23:"/images/hotels/ship.jpg";s:4:"desc";s:1:"B";}}

@@ -1,0 +1,34 @@
+{% extends 'pagelayout.html' %}
+
+{% block content %}
+    <h1> gallery :: create item </h1>
+
+    <form action="/portfolio/gallery_create.php" method="POST">
+
+        <siv class="form-group">
+            <label for="h_title">
+                Title
+            </label>
+            <input type="text" class="form-text" name="h_title">
+        </siv>
+
+        <input type="hidden" name="h_url" value="/images/hotels/ship.jpg">
+
+            <div class="form-group">
+                <label for="h_desc">Description</label>
+                <textarea name="h_desc" class="form-control" id="h_desc" cols="30" rows="10"></textarea>   
+            </div>
+
+            <button type="submit" class="btn btn-danger">Submit</button>
+
+    </form>
+
+    <hr>
+
+    <div class="alert alert-warning border-danger">
+    {% for d in serv|keys %}
+        <dt>{{ d }}</dt> <dd>{{ serv[d] }}</dd>
+    {% endfor %}
+    </div>
+
+{% endblock %}

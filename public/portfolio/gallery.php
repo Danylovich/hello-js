@@ -14,7 +14,8 @@ $twig = new \Twig\Environment($loader);
 // $ws = fwrite( $f, $h_str );
 // fclose( '../storage/hotals.dat', $f );
 
-$fname = '../storage/hotels.txt';
+// $fname = '../storage/hotals.txt';
+$fname = '../storage/hotals.dat';
 $f = fopen($fname,'r');
 $h_str = fread( $f, filesize( $fname ) );
 $hotels = unserialize( $h_str );
@@ -22,8 +23,9 @@ fclose( $f );
 
 
 echo $twig->render('gallery.html',
-    [ 'hotels' => 
-        array_slice(array_reverse( $hotels ), 0, 3)
+    [ 'hotels' =>
+        $hotels
+        // array_slice(array_reverse( $hotels ), 0, 3)
     ]
 );
 

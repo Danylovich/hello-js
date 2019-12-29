@@ -3,23 +3,28 @@
 {% block content %}
     <h1> gallery :: create item </h1>
 
-    <form action="/portfolio/gallery_create.php" method="POST">
+    <form action="/portfolio/gallery_create.php" method="POST" enctype="multipart/form-data">
 
-        <siv class="form-group">
+        <div class="form-group">
             <label for="h_title">
                 Title
             </label>
             <input type="text" class="form-text" name="h_title">
-        </siv>
+        </div>
 
-        <input type="hidden" name="h_url" value="/images/hotels/ship.jpg">
+        <div class="form-group">
+            <label for="h_file"Image:></label>
+            <input type="file" class="form-control-file" id="h_file" name="h_file">
+        </div>
 
-            <div class="form-group">
-                <label for="h_desc">Description</label>
-                <textarea name="h_desc" class="form-control" id="h_desc" cols="30" rows="10"></textarea>   
-            </div>
+        <!-- <input type="hidden" name="h_url" value="/images/hotels/ship.jpg"> -->
 
-            <button type="submit" class="btn btn-danger">Submit</button>
+        <div class="form-group">
+            <label for="h_desc">Description</label>
+            <textarea name="h_desc" class="form-control" id="h_desc" cols="80" rows="5"></textarea>   
+        </div>
+
+        <button type="submit" class="btn btn-danger">Submit</button>
 
     </form>
 

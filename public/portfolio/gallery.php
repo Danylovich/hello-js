@@ -21,7 +21,6 @@ $h_str = fread( $f, filesize( $fname ) );
 $hotels = unserialize( $h_str );
 fclose( $f );
 
-
 echo $twig->render('gallery.html',
     [ 'hotels' =>
         $hotels

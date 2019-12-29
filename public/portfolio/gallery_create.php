@@ -17,11 +17,18 @@ if( $_SERVER['REQUEST_METHOD'] == 'GET' ){
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
     $title = $_POST['h_title'];
-    $url = $_POST['h_Url'];
     $desc = $_POST['h_desc'];
+    $file = $_FILES['h_file'];
+    $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+    $newname = ( uniqid(rand(), true) ) . '.' . $ext;
+    move_uploaded_file(
+        $file['tmp_name'],
+        '../images/hotels/' . $newname
+    );
+    $url = '/images/hotels/' . $newname;
 
     $fname = '../storage/hotals.dat';
-    $f = fopen($fname,'r+');
+    $f = fopen($fname,'r');
     $h_str = fread( $f, filesize( $fname ) );
     $hotels = unserialize( $h_str );
     array_push( $hotels, [
@@ -29,12 +36,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
         'url' => $url,
         'desc' => $desc
     ] );
-    $h_str = serialize( $hotls );
+    $h_str = serialize( $hotels );
     $f = fopen( $fname, 'r+' );
     $ws = fwrite( $f, $h_str );
     fclose( $f );
-
     header('Location: /portfolio/gallery.php');
+
+    // var_dump( $title, $file, $newname );
+    // echo $twig->render('gallery_create.html');
 }
 
 // echo $twig->render('gallery.html');
